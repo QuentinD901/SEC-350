@@ -1,6 +1,6 @@
 # System
-set system host-name fw01-quentin
-set system login user quenitn authentication plaintext-password BabaBooey1
+set system host-name edge01-quentin
+set system login user quenitn authentication plaintext-password BabaBooey!
 set system name-server 10.0.17.2
 set system syslog global facility all level info 
 set system syslog global facility protocols level debug
@@ -32,7 +32,7 @@ set nat destination rule 10 description HTTP->WEB01
 set nat destination rule 10 destination port 80
 set nat destination rule 10 inbound-interface eth0
 set nat destination rule 10 protocol tcp
-set nat destination rule 10 translation address 172.16.50.3
+set nat destination rule 10 translation address 172.16.50.5
 set nat destination rule 10 port 80
 set nat destination rule 11 description SSH->JUMP
 set nat destination rule 11 destination port 22
@@ -73,11 +73,11 @@ set firewall name DMZ-to-WAN rule 10 protocol udp
 set firewall name LAN-to-DMZ default action drop 
 set firewall name LAN-to-DMZ enable-default-log
 set firewall name LAN-to-DMZ rule 10 action accept 
-set firewall name LAN-to-DMZ rule 10 destination address 172.16.50.3
+set firewall name LAN-to-DMZ rule 10 destination address 172.16.50.5
 set firewall name LAN-to-DMZ rule 10 destination port 80
 set firewall name LAN-to-DMZ rule 10 protocol tcp
 set firewall name LAN-to-DMZ rule 11 action accept 
-set firewall name LAN-to-DMZ rule 11 destination address 172.16.50.3
+set firewall name LAN-to-DMZ rule 11 destination address 172.16.50.5
 set firewall name LAN-to-DMZ rule 11 destination port 22
 set firewall name LAN-to-DMZ rule 11 protocol tcp
 #
@@ -88,7 +88,7 @@ set firewall name LAN-to-WAN rule 1 action accept
 set firewall name WAN-to-DMZ default action drop 
 set firewall name WAN-to-DMZ enable-default-log
 set firewall name WAN-to-DMZ rule 10 action accept 
-set firewall name WAN-to-DMZ rule 10 destination address 172.16.50.3
+set firewall name WAN-to-DMZ rule 10 destination address 172.16.50.5
 set firewall name WAN-to-DMZ rule 10 destination port 80
 set firewall name WAN-to-DMZ rule 10 protocol tcp
 set firewall name WAN-to-DMZ rule 11 action accept 
