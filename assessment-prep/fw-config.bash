@@ -53,6 +53,7 @@ set protocols rip network 172.16.50.0/29
 set protocols static route 0.0.0.0/0 next-hop 10.0.17.2 
 set protocols static route 172.16.200.0/28 next-hop 172.16.150.3
 # Firewalls
+# DMZ-to-LAN
 set firewall name DMZ-to-LAN default action drop 
 set firewall name DMZ-to-LAN enable-default-log
 set firewall name DMZ-to-LAN rule 1 action accept 
@@ -61,7 +62,7 @@ set firewall name DMZ-to-LAN rule 10 action accept
 set firewall name DMZ-to-LAN rule 10 destination address 172.16.200.10 
 set firewall name DMZ-to-LAN rule 10 destination port 1514
 set firewall name DMZ-to-LAN rule 10 protocol udp
-#
+# DMZ-to-WAN
 set firewall name DMZ-to-WAN default action drop 
 set firewall name DMZ-to-WAN enable-default-log
 set firewall name DMZ-to-WAN rule 1 action accept 
@@ -69,7 +70,7 @@ set firewall name DMZ-to-WAN rule 1 state established enable
 set firewall name DMZ-to-WAN rule 10 action accept 
 set firewall name DMZ-to-WAN rule 10 destination port 123
 set firewall name DMZ-to-WAN rule 10 protocol udp
-#
+# LAN-to-DMZ
 set firewall name LAN-to-DMZ default action drop 
 set firewall name LAN-to-DMZ enable-default-log
 set firewall name LAN-to-DMZ rule 10 action accept 
@@ -80,11 +81,15 @@ set firewall name LAN-to-DMZ rule 11 action accept
 set firewall name LAN-to-DMZ rule 11 destination address 172.16.50.5
 set firewall name LAN-to-DMZ rule 11 destination port 22
 set firewall name LAN-to-DMZ rule 11 protocol tcp
-#
+set firewall name LAN-to-DMZ rule 12 action accept 
+set firewall name LAN-to-DMZ rule 12 destination address 172.16.50.4
+set firewall name LAN-to-DMZ rule 12 destination port 80
+set firewall name LAN-to-DMZ rule 12 protocol tcp
+# LAN-to-WAN
 set firewall name LAN-to-WAN default action drop 
 set firewall name LAN-to-WAN enable-default-log
 set firewall name LAN-to-WAN rule 1 action accept 
-#
+# WAN-to-DMZ
 set firewall name WAN-to-DMZ default action drop 
 set firewall name WAN-to-DMZ enable-default-log
 set firewall name WAN-to-DMZ rule 10 action accept 
@@ -97,7 +102,7 @@ set firewall name WAN-to-DMZ rule 11 destination port 22
 set firewall name WAN-to-DMZ rule 11 protocol tcp
 set firewall name WAN-to-DMZ rule 12 action accept 
 set firewall name WAN-to-DMZ rule 12 state established enable
-#
+# WAN-to-LAN
 set firewall name WAN-to-LAN default action drop 
 set firewall name WAN-to-LAN enable-default-log
 set firewall name WAN-to-LAN rule 1 action accept 
