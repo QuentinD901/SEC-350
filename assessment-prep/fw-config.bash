@@ -70,8 +70,6 @@ set firewall name DMZ-to-WAN rule 1 state established enable
 set firewall name DMZ-to-WAN rule 10 action accept 
 set firewall name DMZ-to-WAN rule 10 destination port 123
 set firewall name DMZ-to-WAN rule 10 protocol udp
-set firewall name DMZ-to-WAN rule 11 action accept 
-set firewall name DMZ-to-WAN rule 11 source address 172.16.50.4
 # LAN-to-DMZ
 set firewall name LAN-to-DMZ default action drop 
 set firewall name LAN-to-DMZ enable-default-log
@@ -84,9 +82,6 @@ set firewall name LAN-to-DMZ rule 11 destination address 172.16.50.5
 set firewall name LAN-to-DMZ rule 11 destination port 22
 set firewall name LAN-to-DMZ rule 11 protocol tcp
 set firewall name LAN-to-DMZ rule 12 action accept 
-set firewall name LAN-to-DMZ rule 12 destination address 172.16.50.4
-set firewall name LAN-to-DMZ rule 12 destination port 80
-set firewall name LAN-to-DMZ rule 12 protocol tcp
 # LAN-to-WAN
 set firewall name LAN-to-WAN default action drop 
 set firewall name LAN-to-WAN enable-default-log
