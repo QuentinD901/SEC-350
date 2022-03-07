@@ -1,6 +1,8 @@
 sudo apt update
 sudo apt install isc-dhcp-server
+
 sudo cp /etc/dhcp/dhcpd.conf{,.backup}
+
 sudo tee -a /etc/dhcp/dhcpd.conf > /dev/null <<EOT
 # a simple /etc/dhcp/dhcpd.conf
 default-lease-time 6000;
@@ -14,3 +16,6 @@ subnet 192.168.1.0 netmask 255.255.255.0 {
 #option domain-name "mydomain.example";
 }
 EOT
+
+sudo systemctl restart isc-dhcp-server.service
+sudo systemctl status isc-dhcp-server.service
