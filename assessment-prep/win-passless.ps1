@@ -1,3 +1,6 @@
+# https://gridpane.com/kb/generate-ssh-key-on-windows-with-windows-cmd-powershell/
+# https://security.stackexchange.com/questions/167952/copy-ssh-public-key-from-windows-to-ubuntu
+
 ssh-keygen -b 4096
 
 # C:\Users\WINUSER/.ssh/id_rsa.pub
