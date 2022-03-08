@@ -64,7 +64,7 @@ set firewall name WAN-to-LAN default-action 'drop'
 set firewall name WAN-to-LAN enable-default-log
 set firewall name WAN-to-LAN rule 1 action 'accept'
 set firewall name WAN-to-LAN rule 1 state established 'enable'
-set interfaces ethernet eth0 address '10.0.17.118/24'
+set interfaces ethernet eth0 address '10.0.17.115/24'
 set interfaces ethernet eth0 description 'QUENTIN-WAN'
 set interfaces ethernet eth1 address '172.16.50.2/29'
 set interfaces ethernet eth1 description 'QUENTIN-DMZ'
