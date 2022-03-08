@@ -1,3 +1,7 @@
+# Quenntin DeGiorgio - edge01.config
+
+# show config commands | grep -v "syslog global\|ntp\|login\|console\|config\|hw-id\|loopback\|conntrack"
+
 set firewall name DMZ-to-LAN default-action 'drop'
 set firewall name DMZ-to-LAN enable-default-log
 set firewall name DMZ-to-LAN rule 1 action 'accept'
